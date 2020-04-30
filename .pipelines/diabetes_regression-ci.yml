@@ -72,4 +72,4 @@ stages:
       AMLPIPELINEID="$(cat pipeline_id.txt)"
       echo "##vso[task.setvariable variable=AMLPIPELINEID;isOutput=true]$AMLPIPELINEID"
   name: 'getpipelineid'
-  displayName: 'Get Pipeline ID'
+ 
