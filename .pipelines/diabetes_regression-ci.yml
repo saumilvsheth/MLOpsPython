@@ -85,18 +85,7 @@ stages:
     timeoutInMinutes: 0
     steps:
     - template: diabetes_regression-get-model-version-template.yml
-    - task: ms-air-aiagility.vss-services-azureml.azureml-model-deploy-task.AMLModelDeploy@0
-      displayName: 'Azure ML Model Deploy'
-      inputs:
-        azureSubscription: $(WORKSPACE_SVC_CONNECTION)
-        modelSourceType: manualSpec
-        modelName: '$(MODEL_NAME)'
-        modelVersion: $(MODEL_VERSION)
-        inferencePath: '$(Build.SourcesDirectory)/$(SOURCES_DIR_TRAIN)/scoring/inference_config.yml'
-        deploymentTarget: ACI
-        deploymentName: $(ACI_DEPLOYMENT_NAME)
-        deployConfig: '$(Build.SourcesDirectory)/$(SOURCES_DIR_TRAIN)/scoring/deployment_config_aci.yml'
-        overwriteExistingDeployment: true
+
     - task: AzureCLI@1
       displayName: 'Smoke test'
       inputs:
