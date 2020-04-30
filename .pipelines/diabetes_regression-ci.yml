@@ -58,7 +58,6 @@ stages:
     displayName: "Get Pipeline ID for execution"
     container: mlops
     timeoutInMinutes: 0
-    steps:
     -task: AzureCLI@2
       inputs:
         azureSubscription: 'aml-workspace-connection'
@@ -73,3 +72,4 @@ stages:
           echo "##vso[task.setvariable variable=AMLPIPELINEID;isOutput=true]$AMLPIPELINEID"
  
  
+    
