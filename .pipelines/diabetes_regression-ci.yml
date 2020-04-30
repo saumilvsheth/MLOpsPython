@@ -73,7 +73,8 @@ stages:
           echo "##vso[task.setvariable variable=AMLPIPELINEID;isOutput=true]$AMLPIPELINEID"
       name: 'getpipelineid'
       displayName: 'Get Pipeline ID'
-  - stage: 'Deploy_ACI'
+      
+- stage: 'Deploy_ACI'
   displayName: 'Deploy to ACI'
   dependsOn: Trigger_AML_Pipeline
   condition: and(or(succeeded(), variables['MODEL_BUILD_ID']), variables['ACI_DEPLOYMENT_NAME'])
